@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "The JavaScript template",
   "scripts": {
-    "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html"
+    "clean-dist": "rm -rf dist && mkdir dist && mkdir dist/src",
+    "copy-js": "cp -r ./src/*.js ./dist/src",
+    "init": "npm run clean-dist && npm run copy-js",
+    "start": "npm run init && parcel ./src/index.html",
+    "build": "npm run init && parcel build ./src/index.html && yarn run copy-js"
   },
   "devDependencies": {
     "parcel": "^2.0.0",
