@@ -19,6 +19,7 @@ async function checkMedia() {
 
 async function indexAnimations() {
   await gsap;
+  gsap.registerPlugin("ScrollTrigger", "ScrollSmoother", SplitText);
   triggerElement = document.querySelector(".home-intro");
   gsap.set(".tire-tread-bg", {
     transformOrigin: "top left",
@@ -33,6 +34,7 @@ async function indexAnimations() {
   ScrollTrigger.create({
     trigger: triggerElement,
     start: () => `top top`,
+    end: `"+=" self.trigger.offsetHeight + "px"`,
     pin: true,
   });
   let tl = gsap.timeline({
@@ -41,7 +43,6 @@ async function indexAnimations() {
       pinnedContainer: triggerElement,
       start: "top 90%",
       end: "bottom bottom",
-      toggleActions: "restart none none none",
     },
   });
   tl.to(".tire-tread-bg", {
