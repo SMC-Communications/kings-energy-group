@@ -1,4 +1,3 @@
-//test
 /*if (document.readyState === "complete") {
   indexAnimations();
 } else {
