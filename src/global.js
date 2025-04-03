@@ -6,7 +6,7 @@ async function initGSAP() {
 
   let isAtTop, prevTime;
   let bannerRevealed = false;
-  let smoother = ScrollSmoother.create({
+  let smoother = await ScrollSmoother.create({
     smooth: 1,
     effects: true,
     wrapper: ".site-wrapper",
